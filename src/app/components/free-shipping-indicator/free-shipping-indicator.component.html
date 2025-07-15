@@ -1,0 +1,32 @@
+<div class="free-shipping-indicator" [class.mobile]="isMobile" [class.achieved]="state === 'achieved'">
+  <div class="content">
+    <div class="copy">
+      <p class="status-message">
+        {{ statusMessage }}
+        <span 
+          *ngIf="config.showDetails && state === 'unachieved'" 
+          class="details-link"
+          (click)="onDetailsClick()"
+        >
+          {{ config.detailsText }}
+        </span>
+      </p>
+    </div>
+    
+    <div class="progress-bar-container">
+      <span class="min-amount">{{ config.currency }}0</span>
+      
+      <div class="progress-bar">
+        <div class="progress-bar-track">
+          <div 
+            class="progress-bar-fill" 
+            [style.width]="progressBarWidth"
+            [class.achieved]="state === 'achieved'"
+          ></div>
+        </div>
+      </div>
+      
+      <span class="max-amount">{{ config.currency }}{{ config.freeShippingThreshold }}</span>
+    </div>
+  </div>
+</div>
