@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      AEO Shopping
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,28 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">AEO Shopping</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h2>Free Shipping Progress</h2>
+    <app-free-shipping-indicator 
+      [config]="shippingConfig"
+      [isMobile]="false">
+    </app-free-shipping-indicator>
+    
+    <div class="demo-section">
+      <h3>Mobile Preview</h3>
+      <app-free-shipping-indicator 
+        [config]="shippingConfig"
+        [isMobile]="true">
+      </app-free-shipping-indicator>
+    </div>
+    
+    <div class="app-info">
+      <p>This is a demo of the Free Shipping Indicator component integrated into the home page.</p>
+      <p>The component shows progress towards the free shipping threshold of $75.</p>
+    </div>
   </div>
 </ion-content>
