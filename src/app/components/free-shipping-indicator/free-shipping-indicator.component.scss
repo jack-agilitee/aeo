@@ -1,0 +1,165 @@
+@import '../../../theme/variables.scss';
+
+.free-shipping-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  &__message {
+    font-family: 'Avenir Next LT Pro', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #24272a;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    margin: 0;
+    width: 300px;
+    
+    &--achieved {
+      color: #28a745;
+    }
+  }
+  
+  &__details-link {
+    font-family: 'Avenir Next LT Pro', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    color: #666666;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 4px;
+    letter-spacing: 0.458px;
+    
+    &:hover {
+      color: #333333;
+    }
+    
+    &:focus {
+      outline: 2px solid #007bff;
+      outline-offset: 2px;
+    }
+  }
+  
+  &__perk {
+    font-family: 'Avenir Next LT Pro', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #666666;
+    line-height: 15px;
+    margin: 0;
+    width: 255px;
+  }
+  
+  &__progress {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 260px;
+  }
+  
+  &__amount {
+    font-family: 'Avenir Next LT Pro', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #666666;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    
+    &--start {
+      text-align: right;
+    }
+    
+    &--end {
+      text-align: left;
+    }
+  }
+  
+  &__bar {
+    position: relative;
+    height: 9px;
+    width: 208px;
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  &__bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #385adc;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+    
+    &--achieved {
+      background-color: #28a745;
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 32px 16px;
+    
+    &__content {
+      max-width: 100%;
+    }
+    
+    &__message {
+      width: 100%;
+      font-size: 12px;
+    }
+    
+    &__perk {
+      width: 100%;
+      font-size: 11px;
+    }
+    
+    &__progress {
+      max-width: 100%;
+    }
+    
+    &__bar {
+      width: 180px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    &__bar {
+      width: 140px;
+    }
+    
+    &__amount {
+      font-size: 11px;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div class="free-shipping-indicator">
+  <div class="free-shipping-indicator__content">
+    <div class="free-shipping-indicator__text">
+      <p class="free-shipping-indicator__message">
+        <ng-container *ngIf="!isAchieved">
+          You're ${{ remainingAmount }} away from free shipping!
+        </ng-container>
+        <ng-container *ngIf="isAchieved">
+          You've earned free shipping!
+        </ng-container>
+        <button 
+          type="button" 
+          class="free-shipping-indicator__details-link"
+          (click)="toggleDetails()"
+          [attr.aria-expanded]="showDetails"
+          aria-label="Toggle shipping details">
+          Details
+        </button>
+      </p>
+      <p class="free-shipping-indicator__perk">
+        Real Rewards Level {{ displayRewardLevel }} perk
+      </p>
+    </div>
+    
+    <div class="free-shipping-indicator__progress">
+      <span class="free-shipping-indicator__amount free-shipping-indicator__amount--start">
+        ${{ currentAmount }}
+      </span>
+      
+      <div class="free-shipping-indicator__bar">
+        <div 
+          class="free-shipping-indicator__bar-fill"
+          [style.width.%]="progressPercentage"
+          [class.free-shipping-indicator__bar-fill--achieved]="isAchieved"
+          role="progressbar"
+          [attr.aria-valuenow]="currentAmount"
+          [attr.aria-valuemin]="0"
+          [attr.aria-valuemax]="targetAmount"
+          [attr.aria-label]="'Progress toward free shipping: $' + currentAmount + ' of $' + targetAmount">
+        </div>
+      </div>
+      
+      <span class="free-shipping-indicator__amount free-shipping-indicator__amount--end">
+        ${{ targetAmount }}
+      </span>
+    </div>
+  </div>
+</div>
